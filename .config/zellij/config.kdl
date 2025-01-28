@@ -1,6 +1,13 @@
 keybinds clear-defaults=true {
-    normal {
+    shared_except "locked" {
         bind "Esc" "Enter" "Ctrl e" { SwitchToMode "locked"; }
+    }
+    locked {
+        bind "Ctrl t" { SwitchToMode "normal"; }
+        bind "Ctrl Tab" { GoToNextTab; }
+        bind "Ctrl Shift Tab" { GoToPreviousTab; }
+    }
+    normal {
         bind "Ctrl t" { ToggleFocusFullscreen; SwitchToMode "locked"; }
         bind "Ctrl f" { ToggleFloatingPanes; SwitchToMode "locked"; }
         bind "p" { SwitchToMode "pane"; }
@@ -15,23 +22,17 @@ keybinds clear-defaults=true {
         bind "Down" { MoveFocus "Down"; }
         bind "Up" { MoveFocus "Up"; }
     }
-    locked {
-        bind "Ctrl t" { SwitchToMode "normal"; }
-    }
     pane {
-        bind "Esc" "Enter" "Ctrl e" { SwitchToMode "locked"; }
         bind "n" { NewPane; SwitchToMode "locked"; }
         bind "d" { NewPane "Down"; SwitchToMode "locked"; }
         bind "r" { NewPane "Right"; SwitchToMode "locked"; }
         bind "e" { TogglePaneEmbedOrFloating; SwitchToMode "locked"; }
     }
     tab {
-        bind "Esc" "Enter" "Ctrl e" { SwitchToMode "locked"; }
         bind "n" { NewTab; SwitchToMode "RenameTab"; TabNameInput 0; }
         bind "r" { SwitchToMode "RenameTab"; TabNameInput 0; }
     }
     resize {
-        bind "Esc" "Enter" "Ctrl e" { SwitchToMode "locked"; }
         bind "Left" { Resize "Left"; }
         bind "Down" { Resize "Down"; }
         bind "Up" { Resize "Up"; }
@@ -42,14 +43,14 @@ keybinds clear-defaults=true {
         bind "Alt Up" { MoveFocus "Up"; }
     }
     move {
-        bind "Esc" "Enter" "Ctrl e" { SwitchToMode "locked"; }
         bind "Left" { MovePane "Left"; }
         bind "Down" { MovePane "Down"; }
         bind "Up" { MovePane "Up"; }
         bind "Right" { MovePane "Right"; }
+        bind "Tab" { MoveTab "Right"; }
+        bind "Shift Tab" { MoveTab "Left"; }
     }
     scroll {
-        bind "Esc" "Enter" "Ctrl e" { SwitchToMode "locked"; }
         bind "e" { EditScrollback; SwitchToMode "locked"; }
         bind "Down" { ScrollDown; }
         bind "Up" { ScrollUp; }
@@ -63,7 +64,6 @@ keybinds clear-defaults=true {
         bind "Ctrl t" "Esc" "Enter" { SwitchToMode "locked"; }
     }
     search {
-        bind "Esc" "Enter" "Ctrl e" { SwitchToMode "locked"; }
         bind "Down" { ScrollDown; }
         bind "Up" { ScrollUp; }
         bind "PageDown" { PageScrollDown; }
@@ -139,7 +139,7 @@ default_mode "locked"
 //   - true (default)
 //   - false
 //
-// mouse_mode false
+mouse_mode true
 
 // Configure the scroll back buffer size
 // This is the number of lines zellij stores for each pane in the scroll back

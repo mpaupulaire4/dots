@@ -29,20 +29,22 @@ zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
 
 ## Programs
-zinit ice from"gh-r" as"program"
+zinit ice as"program" from"gh-r" \
+  atclone"./fzf --zsh > init.zsh" \
+  atpull"%atclone" src"init.zsh"
 zinit light junegunn/fzf-bin
 
 zinit ice pick"async.zsh" src"pure.zsh" # with zsh-async library that's bundled with it.
 zinit light sindresorhus/pure
 
-zinit ice wait as"command" from"gh-r" lucid \
+zinit ice wait as"program" from"gh-r" lucid \
   atclone"./zoxide init zsh > init.zsh" \
-  atpull"%atclone" src"init.zsh" nocompile'!'
+  atpull"%atclone" src"init.zsh"
 zinit light ajeetdsouza/zoxide
 
-zinit ice as"command" from"gh-r" \
+zinit ice wait as"program" from"gh-r" lucid \
   atclone"./zellij setup --generate-auto-start zsh > init.zsh" \
-  atpull"%atclone" src"init.zsh" nocompile'!'
+  atpull"%atclone" src"init.zsh" 
 zinit light zellij-org/zellij
 
 zinit ice as"program" from"gh-r"
@@ -51,20 +53,19 @@ zinit light jesseduffield/lazygit
 zinit ice as"program" from"gh-r" extract"!" pick"hx"
 zinit light helix-editor/helix
 
-zinit ice as"command" from"gh-r" pick"eza"
+zinit ice as"program" from"gh-r" pick"eza"
 zinit light eza-community/eza
 
-zinit ice as"command" from"gh-r" extract"!" pick"rg"
+zinit ice as"program" from"gh-r" extract"!" pick"rg"
 zinit light BurntSushi/ripgrep
 
-zinit ice as"program" from"gh-r" pick"zellij"
-zinit light zellij-org/zellij
+zinit ice pick"nvm.sh"
+zinit light nvm-sh/nvm
 
 
 # Add in snippets
 zinit snippet OMZL::git.zsh
 zinit snippet OMZP::git
-zinit snippet OMZP::nvm
 zinit snippet OMZP::eza
 zinit snippet OMZP::sudo
 zinit snippet OMZP::aws
