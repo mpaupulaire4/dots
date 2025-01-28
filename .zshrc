@@ -35,10 +35,15 @@ zinit light junegunn/fzf-bin
 zinit ice pick"async.zsh" src"pure.zsh" # with zsh-async library that's bundled with it.
 zinit light sindresorhus/pure
 
-zinit ice wait"2" as"command" from"gh-r" lucid \
+zinit ice wait as"command" from"gh-r" lucid \
   atclone"./zoxide init zsh > init.zsh" \
   atpull"%atclone" src"init.zsh" nocompile'!'
 zinit light ajeetdsouza/zoxide
+
+zinit ice as"command" from"gh-r" \
+  atclone"./zellij setup --generate-auto-start zsh > init.zsh" \
+  atpull"%atclone" src"init.zsh" nocompile'!'
+zinit light zellij-org/zellij
 
 zinit ice as"program" from"gh-r"
 zinit light jesseduffield/lazygit
@@ -52,11 +57,13 @@ zinit light eza-community/eza
 zinit ice as"command" from"gh-r" extract"!" pick"rg"
 zinit light BurntSushi/ripgrep
 
+zinit ice as"program" from"gh-r" pick"zellij"
+zinit light zellij-org/zellij
+
+
 # Add in snippets
 zinit snippet OMZL::git.zsh
 zinit snippet OMZP::git
-zinit ice as"completion"
-zinit snippet OMZP::docker/_docker
 zinit snippet OMZP::nvm
 zinit snippet OMZP::eza
 zinit snippet OMZP::sudo
