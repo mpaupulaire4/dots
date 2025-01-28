@@ -1,0 +1,9 @@
+https://gitea.quantumhelix.eu/thatcasualgamingguy/dotfiles/src/branch/master/.zshrc
+https://github.com/sayanarijit/xplr
+https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins
+https://zdharma-continuum.github.io/zinit/wiki/GALLERY/
+https://github.com/zdharma-continuum/zinit/blob/main/README.md#ice-modifiers
+
+
+
+https://blog.arcjet.com/structured-logging-in-json-for-next-js/
