@@ -21,12 +21,17 @@ zstyle ':omz:plugins:eza' 'dirs-first' yes
 zstyle ':omz:plugins:eza' 'git-status' yes
 zstyle ':omz:plugins:eza' 'header' yes
 zstyle ':omz:plugins:eza' 'icons' yes
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 # Add in zsh plugins
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
+
+zinit light zsh-users/zsh-history-substring-search
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
 
 ## Programs
 zinit ice as"program" from"gh-r" \
@@ -42,11 +47,6 @@ zinit ice wait as"program" from"gh-r" lucid \
   atpull"%atclone" src"init.zsh"
 zinit light ajeetdsouza/zoxide
 
-zinit ice wait as"program" from"gh-r" lucid \
-  atclone"./zellij setup --generate-auto-start zsh > init.zsh" \
-  atpull"%atclone" src"init.zsh" 
-zinit light zellij-org/zellij
-
 zinit ice as"program" from"gh-r"
 zinit light jesseduffield/lazygit
 
@@ -59,6 +59,15 @@ zinit light eza-community/eza
 zinit ice as"program" from"gh-r" extract"!" pick"rg"
 zinit light BurntSushi/ripgrep
 
+zinit ice as"program" from"gh-r"
+zinit light Wilfred/difftastic
+
+zinit ice as"program" from"gh-r" extract"!"
+zinit light dandavison/delta
+
+zinit ice as"program" from"gh-r" extract"!"
+zinit light mattn/efm-langserver
+
 zinit ice pick"nvm.sh"
 zinit light nvm-sh/nvm
 
@@ -67,7 +76,6 @@ zinit light nvm-sh/nvm
 zinit snippet OMZL::git.zsh
 zinit snippet OMZP::git
 zinit snippet OMZP::eza
-zinit snippet OMZP::sudo
 zinit snippet OMZP::aws
 zinit snippet OMZP::command-not-found
 
@@ -89,3 +97,9 @@ setopt hist_find_no_dups
 
 # Alias
 alias cd='z'
+
+# load zellij last
+zinit ice wait as"program" from"gh-r" lucid \
+  atclone"./zellij setup --generate-auto-start zsh > init.zsh" \
+  atpull"%atclone" src"init.zsh" 
+zinit light zellij-org/zellij

@@ -9,27 +9,41 @@ keybinds clear-defaults=true {
     }
     normal {
         bind "Ctrl t" { ToggleFocusFullscreen; SwitchToMode "locked"; }
+        bind "Ctrl g" {
+            Run "lazygit" {
+                close_on_exit true;
+                // in_place true;
+                floating true;
+                height "100%";
+                width "90%";
+                x "5%";
+                y "0";
+            };
+            SwitchToMode "locked";
+        }
         bind "Ctrl f" { ToggleFloatingPanes; SwitchToMode "locked"; }
+        bind "Ctrl n" { NewTab; SwitchToMode "locked"; }
+        bind "n" { NewPane; SwitchToMode "locked"; }
         bind "p" { SwitchToMode "pane"; }
         bind "t" { SwitchToMode "tab"; }
         bind "Ctrl r" { SwitchToMode "resize"; }
         bind "Ctrl s" { SwitchToMode "scroll"; }
         bind "/" { SwitchToMode "entersearch"; SearchInput 0; }
-        bind "Ctrl d" { Detach; }
+        // bind "Ctrl d" { Detach; }
         bind "Ctrl m" { SwitchToMode "move"; }
-        bind "Left" { MoveFocusOrTab "Left"; }
-        bind "Right" { MoveFocusOrTab "Right"; }
+        bind "Left" { MoveFocus "Left"; }
+        bind "Right" { MoveFocus "Right"; }
         bind "Down" { MoveFocus "Down"; }
         bind "Up" { MoveFocus "Up"; }
     }
     pane {
-        bind "n" { NewPane; SwitchToMode "locked"; }
+        // bind "n" { NewPane; SwitchToMode "locked"; }
         bind "d" { NewPane "Down"; SwitchToMode "locked"; }
         bind "r" { NewPane "Right"; SwitchToMode "locked"; }
         bind "e" { TogglePaneEmbedOrFloating; SwitchToMode "locked"; }
     }
     tab {
-        bind "n" { NewTab; SwitchToMode "RenameTab"; TabNameInput 0; }
+        bind "n" { NewTab; SwitchToMode "locked"; }
         bind "r" { SwitchToMode "RenameTab"; TabNameInput 0; }
     }
     resize {
