@@ -37,7 +37,7 @@ bindkey '^[[B' history-substring-search-down
 zinit ice as"program" from"gh-r" \
   atclone"./fzf --zsh > init.zsh" \
   atpull"%atclone" src"init.zsh"
-zinit light junegunn/fzf-bin
+zinit light junegunn/fzf
 
 zinit ice pick"async.zsh" src"pure.zsh" # with zsh-async library that's bundled with it.
 zinit light sindresorhus/pure
