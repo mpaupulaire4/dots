@@ -103,3 +103,8 @@ zinit ice wait as"program" from"gh-r" lucid \
   atclone"./zellij setup --generate-auto-start zsh > init.zsh" \
   atpull"%atclone" src"init.zsh" 
 zinit light zellij-org/zellij
+
+bindkey '^[[1;5D'  backward-word
+bindkey '^[[1;5C'  forward-word
+bindkey '^[[H'     beginning-of-line
+bindkey '^[[F'     end-of-line

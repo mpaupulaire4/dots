@@ -4,6 +4,7 @@ keybinds clear-defaults=true {
     }
     locked {
         bind "Ctrl t" { SwitchToMode "normal"; }
+        bind "Ctrl k" { Clear; }
         bind "Ctrl Tab" { GoToNextTab; }
         bind "Ctrl Shift Tab" { GoToPreviousTab; }
     }
