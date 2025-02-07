@@ -1,0 +1,12 @@
+theme = OneHalfDark
+
+font-family = FiraCode Nerd Font Mono
+font-size = 16
+
+keybind = clear
+
+# keybind = ctrl+plus=increase_font_size
+
+# keybind = ctrl+minus=decrease_font_size
+
+keybind = ctrl+zero=reset_font_size

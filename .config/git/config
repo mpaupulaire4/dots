@@ -1,0 +1,49 @@
+[user]
+  name = Michel Pupulaire
+  email = mpaupulaire@k-id.com
+[core]
+  editor = hx
+  pager = delta
+[interactive]
+  diffFilter = delta --color-only
+[difftool]
+  prompt = false
+[diff]
+  external = difft
+[merge]
+  tool = neovim
+[mergetool "neovim"]
+  cmd = nvim $MERGED
+[pager]
+  difftool = true
+[pull]
+  rebase = true
+[init]
+  defaultBranch = main
+[delta]
+  features = interactive side-by-side onedark
+[delta "interactive"]
+  keep-plus-minus-markers = false
+[delta "onedark"]
+  dark = true
+  plus-style = syntax "#003000"
+  minus-style = syntax "#400000"
+  file-decoration-style = ol ul
+  hunk-header-style = omit
+  line-numbers-left-format = "{nm:>4}│"
+  line-numbers-right-format = "{np:>4}│"
+  line-numbers-zero-style = white
+  line-numbers-minus-style = red
+  line-numbers-plus-style = green
+  syntax-theme = Solarized (dark) 
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[alias]
+    # Difftastic aliases, so `git dlog` is `git log` with difftastic and so on.
+    dlog = -c diff.external=difft log --ext-diff
+    dshow = -c diff.external=difft show --ext-diff
+    ddiff = -c diff.external=difft diff
