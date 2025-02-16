@@ -1,0 +1,5 @@
+*.pkgs
+!default.pkgs
+!foreign.pkgs
+!dev.pkgs
+!work.pkgs

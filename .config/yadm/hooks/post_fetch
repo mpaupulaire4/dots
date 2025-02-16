@@ -1,0 +1,28 @@
+#!/bin/bash
+
+[ ! $YADM_HOOK_EXIT -eq 0 ] && exit $YADM_HOOK_EXIT;
+
+CONFIG_DIR=${XDG_CONFIG_HOME:-$HOME/.config}/yadm/pkgs
+DEFAULT_PKGS=$CONFIG_DIR/default.pkgs
+FOREIGN_PKGS=$CONFIG_DIR/foreign.pkgs
+
+mkdir -pv $CONFIG_DIR
+touch $DEFAULT_PKGS
+touch $FOREIGN_PKGS
+
+# Install Any PKGs needed
+# paru -Qqe |
+#   sort |
+#   comm -23 <(sort $CONFIG_DIR/*.pkgs) - |
+#   paru -S - --needed
+
+# Regenerate .pkgs ignoring ignored pkgs
+ls $CONFIG_DIR/*.pkgs
+comm -23 <(sort $CONFIG_DIR/*.pkgs) <(sort $DEFAULT_PKGS) |
+  comm -23 <(paru -Qqen | sort) - > $DEFAULT_PKGS
+
+comm -23 <(sort $CONFIG_DIR/*.pkgs) <(sort $FOREIGN_PKGS) |
+  comm -23 <(paru -Qqem | sort) - > $FOREIGN_PKGS
+
+# Check for pacnew/saves
+# DIFFPROG='nvim -d' pacdiff -s
