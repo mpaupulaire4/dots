@@ -1,0 +1,45 @@
+#!/bin/bash -e
+
+cd "$HOME"
+
+echo "Updating"
+sudo pacman -Syu
+
+if [ ! -L "/etc/pacman.conf" ]; then
+  echo "Linking pacman.conf"
+  sudo ln -sf "$HOME/.config/pacman/pacman.conf" /etc/pacman.conf
+fi
+
+if ! command -v ssh >/dev/null 2>&1; then
+  echo "Installing SSH"
+  sudo pacman -S openssh --needed
+fi
+
+if [ ! -f "$HOME/.ssh/id_ed25519.pub" ]; then
+  echo "Generating ssh key"
+  ssh-keygen -t ed25519
+fi
+
+echo "Init submodules"
+yadm submodule update --recursive --init
+
+if ! command -v paru >/dev/null 2>&1; then
+  echo 'Installing Paru'
+  sudo pacman -S rustup --needed
+  rustup toolchain install stable
+  rustup default stable
+  git clone https://aur.archlinux.org/paru.git
+  cd paru
+  makepkg -si --needed
+  cd ..
+  rm -rf paru
+
+  paru --gendb
+  paru -S paru
+fi
+
+if ! systemctl --user is-enabled ssh-agent >/dev/null 2>&1; then
+  echo 'Enable ssh agaent systemd unit?';
+  systemctl --user enable ssh-agent
+fi
+

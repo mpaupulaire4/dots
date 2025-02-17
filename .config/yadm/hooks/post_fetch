@@ -11,10 +11,10 @@ touch $DEFAULT_PKGS
 touch $FOREIGN_PKGS
 
 # Install Any PKGs needed
-# paru -Qqe |
-#   sort |
-#   comm -23 <(sort $CONFIG_DIR/*.pkgs) - |
-#   paru -S - --needed
+paru -Qqe |
+  sort |
+  comm -23 <(sort $CONFIG_DIR/*.pkgs) - |
+  paru -S - --needed
 
 # Regenerate .pkgs ignoring ignored pkgs
 ls $CONFIG_DIR/*.pkgs
