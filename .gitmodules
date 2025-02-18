@@ -1,0 +1,3 @@
+[submodule ".config/helix"]
+	path = .config/helix
+	url = git@github.com:mpaupulaire4/helix.git
