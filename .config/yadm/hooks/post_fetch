@@ -11,10 +11,12 @@ touch $DEFAULT_PKGS
 touch $FOREIGN_PKGS
 
 # Install Any PKGs needed
+# TODO: chech that there are new packages to install
+# or porvide a way of install by filename
 paru -Qqe |
   sort |
   comm -23 <(sort $CONFIG_DIR/*.pkgs) - |
-  sudo paru -S - --needed
+  paru -S - --needed
 
 # Regenerate .pkgs ignoring ignored pkgs
 comm -23 <(sort $CONFIG_DIR/*.pkgs) <(sort $DEFAULT_PKGS) |
