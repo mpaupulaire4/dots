@@ -1,10 +1,12 @@
 base-devel
 brave-browser
+chromium
 fprintd
 ghostty
 keyd
 micro
 rustup
 ttf-firacode-nerd
+unzip
 xclip
 yadm

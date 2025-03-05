@@ -53,6 +53,22 @@ zinit light jesseduffield/lazygit
 zinit ice as"program" from"gh-r" extract"!" pick"hx"
 zinit light helix-editor/helix
 
+zinit ice as"program" from"gh-r" extract"!"
+zinit light ducaale/xh
+alias http='xh'
+
+zinit ice as"program" from"gh-r" extract"!" pick"sg"
+zinit light ast-grep/ast-grep
+
+zinit ice as"program" from"gh-r" extract"!"
+zinit light yassinebridi/serpl
+
+zinit ice as"program" from"gh-r" extract"!" \
+  mv"dasel* -> dasel" \
+  atclone"./dasel completion zsh > init.zsh" \
+  atpull"%atclone" src"init.zsh"
+zinit light tomwright/dasel
+
 zinit ice as"program" from"gh-r" pick"eza"
 zinit light eza-community/eza
 
@@ -67,6 +83,11 @@ zinit light dandavison/delta
 
 zinit ice as"program" from"gh-r" extract"!"
 zinit light mattn/efm-langserver
+
+zinit ice as"program" from"gh-r" extract"!" \
+  atclone"./k6 completion zsh > init.zsh" \
+  atpull"%atclone" src"init.zsh"
+zinit light grafana/k6
 
 zinit ice pick"nvm.sh"
 zinit light nvm-sh/nvm
@@ -108,3 +129,26 @@ bindkey '^[[1;5D'  backward-word
 bindkey '^[[1;5C'  forward-word
 bindkey '^[[H'     beginning-of-line
 bindkey '^[[F'     end-of-line
+
+
+
+function dprune () {
+  green="`tput setaf 2`"
+  normal="`tput sgr0`"
+
+  echo -e 'Stopping containers... \c'
+  docker stop `docker ps -aq` &> /dev/null || true
+  echo "${green}done${normal}"
+
+  echo -e 'Pruning containers... \c'
+  docker rm `docker ps -aq` &> /dev/null || true
+  echo "${green}done${normal}"
+
+  echo -e 'Pruning volumes... \c'
+  docker volume rm `docker volume ls` &> /dev/null || true
+  echo "${green}done${normal}"
+
+  echo -e 'Pruning dangling images... \c'
+  docker rmi `docker images -f 'dangling=true' -q` &> /dev/null || true
+  echo "${green}done${normal}"
+}

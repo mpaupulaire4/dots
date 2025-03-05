@@ -30,7 +30,7 @@ keybinds clear-defaults=true {
         bind "Ctrl r" { SwitchToMode "resize"; }
         bind "Ctrl s" { SwitchToMode "scroll"; }
         bind "/" { SwitchToMode "entersearch"; SearchInput 0; }
-        // bind "Ctrl d" { Detach; }
+        bind "d" { Detach; }
         bind "Ctrl m" { SwitchToMode "move"; }
         bind "Left" { MoveFocus "Left"; }
         bind "Right" { MoveFocus "Right"; }
