@@ -57,11 +57,14 @@ zinit ice as"program" from"gh-r" extract"!"
 zinit light ducaale/xh
 alias http='xh'
 
-zinit ice as"program" from"gh-r" extract"!" pick"sg"
+zinit ice as"program" from"gh-r" extract"!" \
+  atclone"./ast-grep completions zsh > init.zsh" \
+  atpull"%atclone" src"init.zsh"
 zinit light ast-grep/ast-grep
 
-zinit ice as"program" from"gh-r" extract"!"
-zinit light yassinebridi/serpl
+# TODO: find and replace tool, preferably leveraging ast-grep
+# zinit ice as"program" from"gh-r" extract"!"
+# zinit light yassinebridi/serpl
 
 zinit ice as"program" from"gh-r" extract"!" \
   mv"dasel* -> dasel" \
