@@ -46,6 +46,7 @@ zinit ice wait as"program" from"gh-r" lucid \
   atclone"./zoxide init zsh > init.zsh" \
   atpull"%atclone" src"init.zsh"
 zinit light ajeetdsouza/zoxide
+alias cd='z'
 
 zinit ice as"program" from"gh-r"
 zinit light jesseduffield/lazygit
@@ -71,6 +72,9 @@ zinit ice as"program" from"gh-r" extract"!" \
   atclone"./dasel completion zsh > init.zsh" \
   atpull"%atclone" src"init.zsh"
 zinit light tomwright/dasel
+
+zinit ice as"program" from"gh-r" extract"!!" pick"spf"
+zinit light yorukot/superfile
 
 zinit ice as"program" from"gh-r" pick"eza"
 zinit light eza-community/eza
@@ -120,7 +124,6 @@ setopt hist_ignore_dups
 setopt hist_find_no_dups
 
 # Alias
-alias cd='z'
 
 # load zellij last
 zinit ice wait as"program" from"gh-r" lucid \
@@ -132,7 +135,6 @@ bindkey '^[[1;5D'  backward-word
 bindkey '^[[1;5C'  forward-word
 bindkey '^[[H'     beginning-of-line
 bindkey '^[[F'     end-of-line
-
 
 
 function dprune () {
