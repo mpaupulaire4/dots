@@ -99,6 +99,13 @@ zinit light grafana/k6
 zinit ice pick"nvm.sh"
 zinit light nvm-sh/nvm
 
+# Work
+
+zinit ice as"program" from"gh-r" extract"!" mv"jsonnet-language-server* -> jsonnet-language-server"
+zinit light grafana/jsonnet-language-server
+
+zinit ice as"program" from"gh-r" extract"!"
+zinit light google/go-jsonnet
 
 # Add in snippets
 zinit snippet OMZL::git.zsh
