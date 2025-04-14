@@ -107,6 +107,20 @@ zinit light grafana/jsonnet-language-server
 zinit ice as"program" from"gh-r" extract"!"
 zinit light google/go-jsonnet
 
+zinit ice as"program" from"gh-r" mv"tk* -> tk"
+zinit light grafana/tanka
+
+zinit ice as"program" from"gh-r" mv"jb* -> jb"
+zinit light jsonnet-bundler/jsonnet-bundler
+
+zinit ice as"program" from"gh-r" 
+zinit light yannh/kubeconform
+
+zinit ice as"program" from"gh-r" mv"opa* -> opa"
+zinit light open-policy-agent/opa
+
+
+
 # Add in snippets
 zinit snippet OMZL::git.zsh
 zinit snippet OMZP::git
@@ -134,7 +148,7 @@ setopt hist_find_no_dups
 
 # load zellij last
 zinit ice wait as"program" from"gh-r" lucid \
-  atclone"./zellij setup --generate-auto-start zsh > init.zsh" \
+  atclone"./zellij setup --generate-auto-start zsh > init.zsh; ./zellij setup --generate-completion zsh > _zellij" \
   atpull"%atclone" src"init.zsh" 
 zinit light zellij-org/zellij
 
