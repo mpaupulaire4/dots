@@ -73,8 +73,12 @@ zinit ice as"program" from"gh-r" extract"!" \
   atpull"%atclone" src"init.zsh"
 zinit light tomwright/dasel
 
-zinit ice as"program" from"gh-r" extract"!!" pick"spf"
-zinit light yorukot/superfile
+zinit ice as"program" from"gh-r" \
+  mv"*x86_64-linux/broot -> broot" \
+  multisrc"completion/_broot init.zsh" \
+  atclone"./broot --print-shell-function zsh > init.zsh; ./broot --set-install-state installed" \
+  atpull"%atclone"
+zinit light canop/broot
 
 zinit ice as"program" from"gh-r" pick"eza"
 zinit light eza-community/eza
@@ -118,7 +122,6 @@ zinit light yannh/kubeconform
 
 zinit ice as"program" from"gh-r" mv"opa* -> opa"
 zinit light open-policy-agent/opa
-
 
 
 # Add in snippets
