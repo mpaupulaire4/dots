@@ -37,7 +37,7 @@ keybinds clear-defaults=true {
         bind "Ctrl t" { ToggleFocusFullscreen; SwitchToMode "locked"; }
     }
     locked {
-        bind "Ctrl k" { }
+        bind "Ctrl k" { Clear; }
         bind "Ctrl t" { SwitchToMode "normal"; }
         bind "Ctrl tab" { GoToNextTab; }
         bind "Ctrl Shift tab" { GoToPreviousTab; }

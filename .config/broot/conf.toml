@@ -242,4 +242,6 @@ file = "skins/native-16.hjson"
 #
 [special_paths] 
 "~/.config".show = "always"
+".git" = {list = "never"}
+"node_modules" = {list = "never"}
 

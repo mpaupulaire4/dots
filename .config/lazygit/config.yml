@@ -1,0 +1,27 @@
+gui:
+  mouseEvents: false
+  expandFocusedSidePanel: true
+  theme:
+    lightTheme: false # For terminals with a light background
+    activeBorderColor:
+      - cyan
+      - bold
+    # optionsTextColor:
+    #   - blue
+    selectedLineBgColor:
+      - '#545862'
+      - bold
+    selectedRangeBgColor:
+      - '#545862'
+      - bold
+git:
+  paging:
+    colorArg: always
+    externalDiffCommand: difft --color=always
+
+showPanelJumps: false
+reporting: 'off'
+quitOnTopLevelReturn: true
+# keybinding:
+#   universal:
+    

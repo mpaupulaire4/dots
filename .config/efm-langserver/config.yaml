@@ -1,0 +1,71 @@
+version: 2
+root-markers:
+  - .git/
+lint-debounce: 1s
+tools:
+  # gitcommit-gitlint: &gitcommit-gitlint
+  #   lint-command: 'gitlint'
+  #   lint-stdin: true
+  #   lint-formats:
+  #     - '%l: %m: "%r"'
+  #     - '%l: %m'
+
+  prettierd: &prettierd
+    format-command: >
+      prettierd ${INPUT} ${--range-start=charStart} ${--range-end=charEnd} ${--tab-width=tabSize}
+    format-stdin: true
+    root-markers:
+      - .prettierrc
+      - .prettierrc.json
+      - .prettierrc.js
+      - .prettierrc.yml
+      - .prettierrc.yaml
+      - .prettierrc.json5
+      - .prettierrc.mjs
+      - .prettierrc.cjs
+      - .prettierrc.toml
+
+  eslint_d: &eslint_d
+    lint-command: >
+      eslint_d --stdin --stdin-filename ${INPUT} -f visualstudio
+    lint-ignore-exit-code: true
+    lint-stdin: true
+    lint-formats:
+      - "%f(%l,%c): %tarning %m"
+      - "%f(%l,%c): %rror %m"
+
+languages:
+  css:
+    - <<: *prettierd
+
+  # gitcommit:
+  #   - <<: *gitcommit-gitlint
+
+  html:
+    - <<: *prettierd
+
+  javascript:
+    - <<: *prettierd
+    - <<: *eslint_d
+
+  typescript: 
+    - <<: *prettierd
+    - <<: *eslint_d
+
+  typescriptreact: 
+    - <<: *prettierd
+    - <<: *eslint_d
+
+  tsx: 
+    - <<: *prettierd
+    - <<: *eslint_d
+
+  jsx: 
+    - <<: *prettierd
+    - <<: *eslint_d
+
+  yaml:
+    - <<: *prettierd
+
+  json: 
+    - <<: *prettierd

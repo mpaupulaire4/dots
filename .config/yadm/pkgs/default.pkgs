@@ -5,6 +5,8 @@ fprintd
 ghostty
 keyd
 micro
+podman
+podman-compose
 rustup
 signal-desktop
 ttf-firacode-nerd
