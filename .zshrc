@@ -51,12 +51,16 @@ alias cd='z'
 zinit ice as"program" from"gh-r"
 zinit light jesseduffield/lazygit
 
+# zinit ice as"program" from"gh-r"
+# zinit light oven-sh/bun
+
 zinit ice as"program" from"gh-r" extract"!" pick"hx"
 zinit light helix-editor/helix
 
 zinit ice as"program" from"gh-r" extract"!"
 zinit light ducaale/xh
 alias http='xh'
+alias https='xh --https'
 
 zinit ice as"program" from"gh-r" extract"!" \
   atclone"./ast-grep completions zsh > init.zsh" \
@@ -67,11 +71,13 @@ zinit light ast-grep/ast-grep
 # zinit ice as"program" from"gh-r" extract"!"
 # zinit light yassinebridi/serpl
 
-zinit ice as"program" from"gh-r" extract"!" \
-  mv"dasel* -> dasel" \
-  atclone"./dasel completion zsh > init.zsh" \
-  atpull"%atclone" src"init.zsh"
-zinit light tomwright/dasel
+zinit ice as"program" from"gh-r" \
+  mv"jaq* -> jaq" 
+zinit light 01mf02/jaq
+alias jq='jaq'
+
+zinit ice as"program" from"gh-r"
+zinit light yamafaktory/jql
 
 zinit ice as"program" from"gh-r" \
   mv"*x86_64-linux/broot -> broot" \
@@ -95,15 +101,15 @@ zinit light dandavison/delta
 zinit ice as"program" from"gh-r" extract"!"
 zinit light mattn/efm-langserver
 
-zinit ice as"program" from"gh-r" extract"!" \
-  atclone"./k6 completion zsh > init.zsh" \
-  atpull"%atclone" src"init.zsh"
-zinit light grafana/k6
-
 zinit ice pick"nvm.sh"
 zinit light nvm-sh/nvm
 
 # Work
+
+zinit ice as"program" from"gh-r" extract"!" \
+  atclone"./k6 completion zsh > init.zsh" \
+  atpull"%atclone" src"init.zsh"
+zinit light grafana/k6
 
 zinit ice as"program" from"gh-r" extract"!" mv"jsonnet-language-server* -> jsonnet-language-server"
 zinit light grafana/jsonnet-language-server
@@ -120,9 +126,14 @@ zinit light jsonnet-bundler/jsonnet-bundler
 zinit ice as"program" from"gh-r" 
 zinit light yannh/kubeconform
 
+zinit ice as"program" from"gh-r" 
+zinit light nektos/act
+
 zinit ice as"program" from"gh-r" mv"opa* -> opa"
 zinit light open-policy-agent/opa
 
+zinit ice as"program" from"gh-r"
+zinit light traefik/traefik
 
 # Add in snippets
 zinit snippet OMZL::git.zsh
@@ -181,3 +192,6 @@ function dprune () {
   docker rmi `docker images -f 'dangling=true' -q` &> /dev/null || true
   echo "${green}done${normal}"
 }
+
+# bun completions
+[ -s "/home/mpaupulaire/.local/share/bun/_bun" ] && source "/home/mpaupulaire/.local/share/bun/_bun"

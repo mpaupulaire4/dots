@@ -24,3 +24,4 @@ export PATH="$GOBIN:$PATH"
 export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
 export BUN_INSTALL="$XDG_DATA_HOME/bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/podman/podman.sock
