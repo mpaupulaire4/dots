@@ -89,10 +89,7 @@ keybinds clear-defaults=true {
         bind "esc" { SwitchToMode "locked"; }
     }
     shared_among "normal" "scroll" {
-        bind "/" { SwitchToMode "entersearch"; SearchInput 0; }
-    }
-    shared_except "normal" "locked" "entersearch" "renametab" "renamepane" {
-        bind "Ctrl e" { SwitchToMode "locked"; }
+        bind "?" { SwitchToMode "entersearch"; SearchInput 0; }
     }
     shared_among "scroll" "search" {
         bind "PageDown" { PageScrollDown; }
@@ -120,7 +117,7 @@ themes {
     dark {
         text_unselected {
             base 171 178 191
-            background 30 33 39
+            background 31 34 39
             emphasis_0 229 131 64
             emphasis_1 86 182 194
             emphasis_2 152 195 121
@@ -128,14 +125,14 @@ themes {
         }
         text_selected {
             base 171 178 191
-            background 30 33 39
+            background 31 34 39
             emphasis_0 229 131 64
             emphasis_1 86 182 194
             emphasis_2 152 195 121
             emphasis_3 198 120 221
         }
         ribbon_selected {
-            base 30 33 39
+            base 31 34 39
             background 152 195 121
             emphasis_0 224 108 117
             emphasis_1 229 131 64
@@ -143,7 +140,7 @@ themes {
             emphasis_3 97 175 239
         }
         ribbon_unselected {
-            base 30 33 39
+            base 31 34 39
             background 171 178 191
             emphasis_0 224 108 117
             emphasis_1 171 178 191
@@ -160,7 +157,7 @@ themes {
         }
         table_cell_selected {
             base 171 178 191
-            background 30 33 39
+            background 31 34 39
             emphasis_0 229 131 64
             emphasis_1 86 182 194
             emphasis_2 152 195 121
@@ -168,7 +165,7 @@ themes {
         }
         table_cell_unselected {
             base 171 178 191
-            background 30 33 39
+            background 31 34 39
             emphasis_0 229 131 64
             emphasis_1 86 182 194
             emphasis_2 152 195 121
@@ -176,7 +173,7 @@ themes {
         }
         list_selected {
             base 171 178 191
-            background 30 33 39
+            background 31 34 39
             emphasis_0 229 131 64
             emphasis_1 86 182 194
             emphasis_2 152 195 121
@@ -184,7 +181,7 @@ themes {
         }
         list_unselected {
             base 171 178 191
-            background 30 33 39
+            background 31 34 39
             emphasis_0 229 131 64
             emphasis_1 86 182 194
             emphasis_2 152 195 121
@@ -210,7 +207,7 @@ themes {
             base 152 195 121
             background 0
             emphasis_0 86 182 194
-            emphasis_1 30 33 39
+            emphasis_1 31 34 39
             emphasis_2 198 120 221
             emphasis_3 97 175 239
         }

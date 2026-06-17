@@ -27,9 +27,10 @@ ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
+zinit light zdharma-continuum/zinit-annex-binary-symlink
 zinit light Aloxaf/fzf-tab
-
 zinit light zsh-users/zsh-history-substring-search
+
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
@@ -47,6 +48,9 @@ zinit ice wait as"program" from"gh-r" lucid \
   atpull"%atclone" src"init.zsh"
 zinit light ajeetdsouza/zoxide
 alias cd='z'
+
+zinit ice as"program" from"gh-r"
+zinit light errata-ai/vale
 
 zinit ice as"program" from"gh-r"
 zinit light jesseduffield/lazygit
@@ -72,9 +76,8 @@ zinit light ast-grep/ast-grep
 # zinit light yassinebridi/serpl
 
 zinit ice as"program" from"gh-r" \
-  mv"jaq* -> jaq" 
+  mv"jaq* -> jaq" lbin"!jaq -> jq"
 zinit light 01mf02/jaq
-alias jq='jaq'
 
 zinit ice as"program" from"gh-r"
 zinit light yamafaktory/jql
@@ -126,6 +129,11 @@ zinit light jsonnet-bundler/jsonnet-bundler
 zinit ice as"program" from"gh-r" 
 zinit light yannh/kubeconform
 
+# zinit ice as"program" pick"/dev/null" from"gh-r" mv"mise* -> mise" \
+#   atclone'$(realpath ./mise) activate zsh > init.zsh' \
+#   atpull"%atclone" src"init.zsh"
+# zinit light jdx/mise
+
 zinit ice as"program" from"gh-r" 
 zinit light nektos/act
 
@@ -160,12 +168,6 @@ setopt hist_find_no_dups
 
 # Alias
 
-# load zellij last
-zinit ice wait as"program" from"gh-r" lucid \
-  atclone"./zellij setup --generate-auto-start zsh > init.zsh; ./zellij setup --generate-completion zsh > _zellij" \
-  atpull"%atclone" src"init.zsh" 
-zinit light zellij-org/zellij
-
 bindkey '^[[1;5D'  backward-word
 bindkey '^[[1;5C'  forward-word
 bindkey '^[[H'     beginning-of-line
@@ -195,3 +197,18 @@ function dprune () {
 
 # bun completions
 [ -s "/home/mpaupulaire/.local/share/bun/_bun" ] && source "/home/mpaupulaire/.local/share/bun/_bun"
+
+# load zellij last
+zinit ice wait as"program" from"gh-r" lucid \
+  atclone"./zellij setup --generate-auto-start zsh > init.zsh; ./zellij setup --generate-completion zsh > _zellij" \
+  atpull"%atclone" src"init.zsh" 
+zinit light zellij-org/zellij
+eval "$(mise activate zsh)"
+export PATH="$HOME/.local/share/mise/shims:$PATH" 
+export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools:$ANDROID_HOME/emulator"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/mpaupulaire/.local/share/google-cloud-sdk/path.zsh.inc' ]; then . '/home/mpaupulaire/.local/share/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/mpaupulaire/.local/share/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/mpaupulaire/.local/share/google-cloud-sdk/completion.zsh.inc'; fi

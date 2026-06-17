@@ -25,6 +25,7 @@
 # A popular flag is the `g` one which displays git related info.
 #
 default_flags = "-ihgt"
+# modal = true
 
 ###############################################################
 # Column order
@@ -243,5 +244,6 @@ file = "skins/native-16.hjson"
 [special_paths] 
 "~/.config".show = "always"
 ".git" = {list = "never"}
+".next" = {list = "never"}
 "node_modules" = {list = "never"}
 

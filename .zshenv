@@ -24,4 +24,10 @@ export PATH="$GOBIN:$PATH"
 export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
 export BUN_INSTALL="$XDG_DATA_HOME/bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+export PATH="$HOME/.local/state/nix/profile/bin:$PATH"
 export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/podman/podman.sock
+export FZF_CTRL_T_COMMAND=
+
+export ANDROID_HOME=$HOME/Android/Sdk
+export PI_CODING_AGENT_DIR=$XDG_CONFIG_HOME/pi
+

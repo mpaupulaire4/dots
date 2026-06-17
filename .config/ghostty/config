@@ -1,4 +1,4 @@
-theme = OneHalfDark
+theme = Atom One Dark
 
 font-family = FiraCode Nerd Font Mono
 font-size = 12
@@ -13,7 +13,7 @@ keybind = ctrl+shift+c=copy_to_clipboard
 
 # Base16 OneDark - kitty color config
 # Scheme by Lalit Magant (http://github.com/tilal6991)
-background=#282c34
+background=#1f2227
 foreground=#abb2bf
 selection-background=#abb2bf
 selection-foreground=#282c34
